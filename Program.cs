@@ -13,6 +13,7 @@
 ["Russia", "Denmark", "Kazan"] -> []
 */
 
+// "Защита от дурака" на ввод числа (размера массива)
 int GetNumber(string message) {
     bool isCorrect = false;
     int result = 0;
@@ -25,8 +26,10 @@ int GetNumber(string message) {
     return result;
 }
 
+// Задаём размер массива
 int size = GetNumber("Введите размер массива");
 
+// Метод заполнения массива элементами через консоль
 string[] GetArray(int size) {
     string[] array = new string[size];
     for (int i = 0; i < size; i++) {
@@ -36,21 +39,27 @@ string[] GetArray(int size) {
     return array;
 }
 
+// Задаём исходный массив
 string[] array = GetArray(size);
 
+// Метод вывода массива в консоль
 void PrintArray(string[] array) {
     Console.WriteLine("\nПолучили массив строк:\n");
     Console.WriteLine("[{0}]", string.Join("; ", array));
 }
 
+// Вывод исходного массива
 PrintArray(array);
 
+// Метод для составления трёхсимвольного массива из исходного
 string[] GetThreeCharArray(string[] array) {
     string[] resultArray = array.Where(x => x.Length <= 3).ToArray();
     return resultArray;
 }
 
+// Получаем итоговый массив
+string[] resultArray = GetThreeCharArray(array);
+
+// Вывод результата
 Console.Write("Оставляем строки с 3-мя символами.");
-PrintArray(
-    GetThreeCharArray(array)
-);
+PrintArray(resultArray);
