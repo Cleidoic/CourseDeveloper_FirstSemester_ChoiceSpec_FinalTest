@@ -56,10 +56,35 @@ string[] GetThreeCharArray(string[] array) {
     string[] resultArray = array.Where(x => x.Length <= 3).ToArray();
     return resultArray;
 }
+// Или с помощью циклов алгоритм можно записать так:
+
+// string[] GetThreeCharArray(string[] array) {
+// Считаем сколько трёхсимвольных (или меньше) элементов в исходном массиве
+//     int count = 0;
+//     for (int i = 0; i < size; i++) {
+//         if (array[i].Length <= 3)
+//             count++;
+//     }
+// Задаём длину нового массива
+//     string[] resultArray = new string[count];
+// Задаём переменную, которая будет запоминать позицию в исходном массиве
+//     int position = 0;
+// Пробегаем по исходному массиву, при нахождении нужного элемента, записываем его в новый
+//     for (int j = 0; j < count; j++) {
+//         for (int k = position; k < size; k++) {
+//             position++;
+//             if (array[k].Length <=3) {
+//                 resultArray[j] = array[k];
+//                 break;
+//             }
+//         }
+//     }
+//     return resultArray;
+// }
 
 // Получаем итоговый массив
 string[] resultArray = GetThreeCharArray(array);
 
 // Вывод результата
-Console.Write("Оставляем строки с 3-мя символами.");
+Console.Write("\nОставляем строки с 3-мя символами.");
 PrintArray(resultArray);
